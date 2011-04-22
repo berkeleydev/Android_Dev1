@@ -29,13 +29,22 @@ public class myMenu extends Activity {
 				mpButtonClick.start();
 			}
 		});
-		
+		/*
 		Button bPredefTour = (Button) findViewById(R.id.button2);
 		bPredefTour.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent ("com.timurb.mobsy.TUTORIALONE"));
+				mpButtonClick.start();
+			}
+		});*/
+		Button mapBrowsingMode = (Button) findViewById(R.id.button3);
+		mapBrowsingMode.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent ("com.timurb.mobsy.MAPTRACKER"));
 				mpButtonClick.start();
 			}
 		});
