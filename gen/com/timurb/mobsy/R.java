@@ -17,25 +17,28 @@ public final class R {
         public static final int squirrel1=0x7f020003;
     }
     public static final class id {
-        public static final int bOK=0x7f06000d;
+        public static final int bOK=0x7f06000f;
         public static final int button1=0x7f060001;
         public static final int button2=0x7f060002;
-        public static final int etInput=0x7f060003;
-        public static final int rbBold=0x7f06000a;
-        public static final int rbCenter=0x7f060008;
-        public static final int rbItalic=0x7f06000b;
-        public static final int rbLeft=0x7f060006;
-        public static final int rbNormal=0x7f060009;
-        public static final int rbRight=0x7f060007;
+        public static final int button3=0x7f060003;
+        public static final int etInput=0x7f060005;
+        public static final int mapview=0x7f060004;
+        public static final int rbBold=0x7f06000c;
+        public static final int rbCenter=0x7f06000a;
+        public static final int rbItalic=0x7f06000d;
+        public static final int rbLeft=0x7f060008;
+        public static final int rbNormal=0x7f06000b;
+        public static final int rbRight=0x7f060009;
         public static final int textView=0x7f060000;
-        public static final int textView1=0x7f060004;
-        public static final int textView2=0x7f060005;
-        public static final int tvGetInput=0x7f06000c;
+        public static final int textView1=0x7f060006;
+        public static final int textView2=0x7f060007;
+        public static final int tvGetInput=0x7f06000e;
     }
     public static final class layout {
         public static final int main=0x7f030000;
-        public static final int splash=0x7f030001;
-        public static final int tutorial1=0x7f030002;
+        public static final int map=0x7f030001;
+        public static final int splash=0x7f030002;
+        public static final int tutorial1=0x7f030003;
     }
     public static final class raw {
         public static final int begin=0x7f040000;
@@ -43,6 +46,7 @@ public final class R {
         public static final int intro=0x7f040002;
     }
     public static final class string {
+        public static final int MapMode=0x7f050005;
         public static final int app_name=0x7f050001;
         public static final int choose_mode=0x7f050002;
         public static final int free=0x7f050003;

@@ -5,4 +5,5 @@
     <string name="choose_mode">Please choose your area browsing mode:</string>
     <string name="free">Free Browsing:</string>
     <string name="predef">Predefined Paths</string>
+    <string name="MapMode">Map Mode</string>
 </resources>
