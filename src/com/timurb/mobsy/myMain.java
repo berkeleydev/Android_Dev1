@@ -22,7 +22,7 @@ public class myMain extends Activity {
 			public void run(){
 				try{
 					int logoTimer = 0;
-					while(logoTimer <1000){
+					while(logoTimer <2000){
 						sleep(100);
 						logoTimer = logoTimer +100;
 					}

@@ -11,6 +11,8 @@ import com.google.android.maps.ItemizedOverlay;
 
 public class CostumMapOverlay extends ItemizedOverlay {
 
+	Context mContext;
+	
 	private ArrayList<OverlayItem> mOverlays = new ArrayList<OverlayItem>();
 	
 	   public CostumMapOverlay(Drawable defaultMarker) {
@@ -33,10 +35,15 @@ public class CostumMapOverlay extends ItemizedOverlay {
 	        return mOverlays.size();
 	    }
 
+	    public CostumMapOverlay(Drawable defaultMarker, Context context) {
+	    	super(boundCenterBottom(defaultMarker));
+	    	  mContext = context;
+	    	}
+	    
 	    @Override
 	    protected boolean onTap(int index) {
 	        OverlayItem item = mOverlays.get(index);
-	        Context mContext = null;
+	        //Context mContext = null;
 	        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
 	        dialog.setTitle(item.getTitle());
 	        dialog.setMessage(item.getSnippet());

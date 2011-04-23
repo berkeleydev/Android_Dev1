@@ -34,7 +34,8 @@ public class mapTracker extends MapActivity {
     List<Overlay> mapOverlays;
     Drawable drawable;
     CostumMapOverlay pointsOverlay;
-	@Override
+	
+    @Override
 	protected boolean isRouteDisplayed() {
 		// TODO Auto-generated method stub
 		return false;
@@ -49,12 +50,7 @@ public class mapTracker extends MapActivity {
            
         mapView = (MapView) findViewById(R.id.mapview);
         mapView.setBuiltInZoomControls(true);
-
-        mapOverlays = mapView.getOverlays();
-        Drawable drawable = this.getResources().getDrawable(R.drawable.icon);
-        pointsOverlay = new CostumMapOverlay(drawable);
-       
-         
+                   
         LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         MyLocationListener locationListener = new MyLocationListener();
         Criteria criteria = new Criteria();
@@ -68,11 +64,20 @@ public class mapTracker extends MapActivity {
         }
         //lm.requestLocationUpdates(provider, 1, 0, locationListener);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 35000, 10, locationListener);
+        
+        
+        
         GeoPoint point = new GeoPoint((int)(latid*1e6),(int)(longid*1e6));
-        OverlayItem overlayitem = new OverlayItem(point, "Mobsy", "test0");
+        String Popupstring = "Lat: "+Double.toString(latid)+" Long: "+Double.toString(longid)+ " w/ Acc: " + Double.toString(accuracyd);
+        OverlayItem overlayitem = new OverlayItem(point, "Mobsy", "My Location is: \n" + Popupstring);
+                  
+        mapOverlays = mapView.getOverlays();
+        Drawable drawable = this.getResources().getDrawable(R.drawable.droid);
+        pointsOverlay = new CostumMapOverlay(drawable,this);
+       
         pointsOverlay.addOverlay(overlayitem);
         mapOverlays.add(pointsOverlay);
-       
+    
     } 
  private class MyLocationListener implements LocationListener {
 
