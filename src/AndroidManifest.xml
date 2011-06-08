@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.timurb.mobsy"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="4" />
+    <uses-library android:name="com.google.android.maps" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>   
+
+
+    <application android:icon="@drawable/squirrel" android:label="@string/app_name">
+        <uses-library android:name="com.google.android.maps" />          
+        <activity android:name="myMain">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name="myMenu">
+            <intent-filter>
+                <action android:name="com.timurb.mobsy.CLEARSCREEN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+		<activity android:name="tutorialOne">
+            <intent-filter>
+                <action android:name="com.timurb.mobsy.FREEBROWSE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="mapTracker">
+            <intent-filter>
+                <action android:name="com.timurb.mobsy.MAPTRACKER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    
+    </application>
+</manifest>

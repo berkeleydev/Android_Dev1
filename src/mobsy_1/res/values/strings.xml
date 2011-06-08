@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Thank you for trying MobSy: MOBile Sightseeing sYstem!</string>
+    <string name="app_name">Mobsy</string>
+    <string name="choose_mode">CHOOSE AREA BROWSING MODE:</string>
+    <string name="free">Free Browsing</string>
+    <string name="predef">Predefined Paths</string>
+    <string name="MapMode">Map Mode</string>
+    <string name="free_browse_descr">Browse the area around 
+    you and get info about the nearby sites on-the-go</string>
+    <string name="predef_descr">Follow the guided predefined routes of attractions</string>
+	<string name="KazanKremlin_descr">You are approaching Kazan Kremlin, the chief historic citadel of Tatarstan, situated in the city of Kazan. It was built on behest of Ivan the Terrible on the ruins of the former castle of Kazan khans. It was declared a World Heritage Site in 2000.</string>
+</resources>
