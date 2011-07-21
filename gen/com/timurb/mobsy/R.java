@@ -12,25 +12,29 @@ public final class R {
     }
     public static final class drawable {
         public static final int android1=0x7f020000;
-        public static final int bronze=0x7f020001;
-        public static final int button_focused=0x7f020002;
-        public static final int button_normal=0x7f020003;
-        public static final int button_press=0x7f020004;
-        public static final int button_pressed=0x7f020005;
-        public static final int button_pressedb=0x7f020006;
-        public static final int button_style=0x7f020007;
-        public static final int droid=0x7f020008;
-        public static final int droid_overlay=0x7f020009;
-        public static final int droid_sm=0x7f02000a;
-        public static final int droid_sm_tap=0x7f02000b;
-        public static final int droid_ssm=0x7f02000c;
-        public static final int icon=0x7f02000d;
-        public static final int mobsy=0x7f02000e;
-        public static final int mobsy_rot=0x7f02000f;
-        public static final int nube_computo=0x7f020010;
-        public static final int sphere=0x7f020011;
-        public static final int squirrel=0x7f020012;
-        public static final int squirrel1=0x7f020013;
+        public static final int arrow=0x7f020001;
+        public static final int arrow_1=0x7f020002;
+        public static final int arrow_sm=0x7f020003;
+        public static final int arrow_sm1=0x7f020004;
+        public static final int bronze=0x7f020005;
+        public static final int button_focused=0x7f020006;
+        public static final int button_normal=0x7f020007;
+        public static final int button_press=0x7f020008;
+        public static final int button_pressed=0x7f020009;
+        public static final int button_pressedb=0x7f02000a;
+        public static final int button_style=0x7f02000b;
+        public static final int droid=0x7f02000c;
+        public static final int droid_overlay=0x7f02000d;
+        public static final int droid_sm=0x7f02000e;
+        public static final int droid_sm_tap=0x7f02000f;
+        public static final int droid_ssm=0x7f020010;
+        public static final int icon=0x7f020011;
+        public static final int mobsy=0x7f020012;
+        public static final int mobsy_rot=0x7f020013;
+        public static final int nube_computo=0x7f020014;
+        public static final int sphere=0x7f020015;
+        public static final int squirrel=0x7f020016;
+        public static final int squirrel1=0x7f020017;
     }
     public static final class id {
         public static final int bOK=0x7f060010;

@@ -13,11 +13,13 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.TextView;
@@ -29,7 +31,7 @@ import android.widget.LinearLayout;
 import android.graphics.drawable.Drawable;
 
 
-public class mapTracker extends MapActivity {
+public class mapTracker extends MapActivity implements TextToSpeech.OnInitListener {
 
 	double latid;						// Geopoint latitude
 	double longid;						// Geopoint longitude
@@ -42,6 +44,9 @@ public class mapTracker extends MapActivity {
     CostumMapOverlay pointsOverlay;		// Overlay class item
     String providershow;				// Provider string
 	
+    private TextToSpeech mTts; 			// TTS engine
+    private static final int MY_DATA_CHECK_CODE = 1234; // any value you want, its just a checksum.
+    
     @Override
 	protected boolean isRouteDisplayed() {
 		// TODO Auto-generated method stub
@@ -54,7 +59,12 @@ public class mapTracker extends MapActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map);
         
-           
+        // TTS init follows
+        Intent checkIntent = new Intent();
+        checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
+        
+        // Mapview init follows 
         mapView = (MapView) findViewById(R.id.mapview);
         mapView.setBuiltInZoomControls(true);
                    
@@ -98,7 +108,8 @@ public class mapTracker extends MapActivity {
      // the pop-up dialogue part
         double dist = GPSdist.distance(location1.getLatitude(), location1.getLongitude(), latid, longid);
         double dist3 = GPSdist.distance(location3.getLatitude(), location3.getLongitude(), latid, longid);
-        if(dist < 6) {   
+        AlertHandler.ShowAlert(this, dist, this.getString(R.string.KazanKremlin_descr)); 
+    /*   if(dist < 6) {   
                 // prepare the alert box
         	    final Context localcontext = this;
                 AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
@@ -152,7 +163,7 @@ public class mapTracker extends MapActivity {
             // show it
             alertbox.show();
         }
-                
+       */         
         //         
         
         GeoPoint point = new GeoPoint((int)(latid*1e6),(int)(longid*1e6));
@@ -166,8 +177,48 @@ public class mapTracker extends MapActivity {
         pointsOverlay.addOverlay(overlayitem);
         mapOverlays.add(pointsOverlay);
 
-          
+         
     }
+    
+    public void onInit(int i)
+    {
+        mTts.speak(this.getString(R.string.KazanKremlin_descr),
+                TextToSpeech.QUEUE_FLUSH,  // Drop all pending entries in the playback queue.
+                null);
+    }
+    
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == MY_DATA_CHECK_CODE)
+        {
+            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS)
+            {
+                // success, create the TTS instance
+                mTts = new TextToSpeech(this, this);
+            }
+            else
+            {
+                // missing data, install it
+                Intent installIntent = new Intent();
+                installIntent.setAction(
+                        TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                startActivity(installIntent);
+            }
+        }
+    }
+    
+    @Override
+    public void onDestroy()
+    {
+        // Don't forget to shutdown!
+        if (mTts != null)
+        {
+            mTts.stop();
+            mTts.shutdown();
+        }
+        super.onDestroy();
+    }
+    
  private class MyLocationListener implements LocationListener {
 
     	public void onLocationChanged(Location mostRecentLocation) {

@@ -50,4 +50,12 @@ public class CostumMapOverlay extends ItemizedOverlay {
 	        dialog.show();
 	        return true;
 	    }
+	    
+	    public void draw(android.graphics.Canvas canvas,
+	    		MapView mapView,
+	    		boolean shadow) {
+
+	    		super.draw(canvas, mapView, false);
+
+	    		}
 }

@@ -1,0 +1,39 @@
+   18  ssh git@github.com
+   23  git clone git@github.com:berkeleydev/Android_Dev1
+   31  git add mobsy_1/
+   32  git add mobsy_1/*
+   33  git
+   34  git init
+   35  git add mobsy_1/*
+   36  git commit -m initial copy
+   37  git commit -m "initial copy"
+   38  git push
+   39  git init
+   41  git init
+   63  git init
+   64  git add *
+   65  git commit -m "initial copy"
+   66  git push
+   67  git pull
+   68  git push
+   72  git pull
+   74  git rm -r skeleton
+   75  git add *
+   76  git commit -m "initial copy 1"
+   77  git push
+   78  git rm *
+   79  git rm -r *
+   80  git rm  /*
+   81  git pull
+   93  git add *
+   94  git commit -m "initial copy"
+   95  git push
+  189  git pull
+  191  git pull
+  500  history | grep git
+  501  git pull
+  502  git add *
+  503  git commit -m "GPS_tracker enabled"
+  504  git push
+  505  history | grep git
+  506  history | grep git > git.history
