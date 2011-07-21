@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Thank you for trying MobSy - MOBile Sightseeing sYstem!</string>
+    <string name="hello">Thank you for trying MobSy: MOBile Sightseeing sYstem!</string>
     <string name="app_name">Mobsy</string>
-    <string name="choose_mode">Please choose your area browsing mode:</string>
+    <string name="choose_mode">CHOOSE AREA BROWSING MODE:</string>
     <string name="free">Free Browsing</string>
     <string name="predef">Predefined Paths</string>
     <string name="MapMode">Map Mode</string>
     <string name="free_browse_descr">Browse the area around 
-    you and find out about the nearby sites on-the-go</string>
-    <string name="predef_descr">Follow the predefined routes of attractions around the area and get the information about surroundings as you go</string>
+    you and get info about the nearby sites on-the-go</string>
+    <string name="predef_descr">Follow the guided predefined routes of attractions</string>
+	<string name="KazanKremlin_descr">You are approaching Kazan Kremlin, the chief historic citadel of Tatarstan, situated in the city of Kazan. It was built on behest of Ivan the Terrible on the ruins of the former castle of Kazan khans. It was declared a World Heritage Site in 2000.</string>
+	<string name="Biler_descr">Bilär (Tatar Cyrillic: Биләр; also Bilyar, Bülär, Бүләр) was a medieval city in Volga Bulgaria and its second capital before the Mongol invasion of Volga Bulgaria. It was located on the left bank of the Small Cheremshan River in modern-day Alexeyevsky District of the Republic of Tatarstan.</string>
 </resources>

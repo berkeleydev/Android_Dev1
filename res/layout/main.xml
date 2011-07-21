@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/bronze"
     >
 <TextView  
     android:layout_width="fill_parent" 
@@ -12,8 +13,8 @@
     android:textSize="25dp"
     android:textStyle="bold"
     android:gravity="center_horizontal" 
-    android:textColor="#FFAFFF"
-    android:layout_marginTop="10dp" android:typeface="sans" android:layout_weight="1"/>
+    android:textColor="#FFFF00"
+    android:layout_marginTop="35dp" android:typeface="sans" android:layout_weight="0.1"/>
  
  <LinearLayout
  	android:orientation="vertical"
@@ -23,15 +24,16 @@
  <Button android:text="@string/MapMode"
 		android:id="@+id/button3"
 		android:layout_width="fill_parent" 
-		android:textStyle="bold" 
+		android:textStyle="bold"
+		android:textColor="#FFFFFF"
 		android:textSize="35dp" 
-		android:ellipsize="middle" 
-		android:layout_height="75dp" android:typeface="sans"></Button>  		
+		android:background="@drawable/button_style" 
+		android:typeface="sans" android:layout_weight="10" android:layout_height="95dp"></Button>  		
  <TextView  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="@string/free_browse_descr"
-    android:id="@+id/free_bowse_descr"
+    android:id="@+id/free_browse_descr"
     android:textSize="15dp"
     android:textStyle="bold"
     android:gravity="center_horizontal" 
@@ -44,9 +46,11 @@
 		android:id="@+id/button1" 
 		android:layout_width="fill_parent" 
 		android:textStyle="bold"
+		android:textColor="#FFFFFF"
 		android:ellipsize="middle" 
 		android:textSize="35dp" 
-		android:layout_height="75dp"></Button>
+		android:background="@drawable/button_style"
+		android:layout_weight="10" android:layout_height="95dp"></Button>
 		
   <TextView  
     android:layout_width="fill_parent" 
