@@ -4,7 +4,9 @@ package com.timurb.mobsy;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import com.google.android.maps.MyLocationOverlay;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 import java.util.List;
@@ -38,14 +40,17 @@ public class mapTracker extends MapActivity implements TextToSpeech.OnInitListen
 	double accuracyd;					// Geopoint accuracy
 	//TextView myTextView;
 	//LinearLayout linearLayout;
+	MapController mapControl;	 		// Map controller
 	MapView mapView;					// Map ID on the screen
     List<Overlay> mapOverlays;			// List of overlays to display
     Drawable drawable;					// Drawable item 
     CostumMapOverlay pointsOverlay;		// Overlay class item
+    MyLocationOverlay compass; 
     String providershow;				// Provider string
 	
     private TextToSpeech mTts; 			// TTS engine
     private static final int MY_DATA_CHECK_CODE = 1234; // any value you want, its just a checksum.
+    private String ttsstring;
     
     @Override
 	protected boolean isRouteDisplayed() {
@@ -108,83 +113,51 @@ public class mapTracker extends MapActivity implements TextToSpeech.OnInitListen
      // the pop-up dialogue part
         double dist = GPSdist.distance(location1.getLatitude(), location1.getLongitude(), latid, longid);
         double dist3 = GPSdist.distance(location3.getLatitude(), location3.getLongitude(), latid, longid);
-        AlertHandler.ShowAlert(this, dist, this.getString(R.string.KazanKremlin_descr)); 
-    /*   if(dist < 6) {   
-                // prepare the alert box
-        	    final Context localcontext = this;
-                AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
-                
-                // set the message to display
-                alertbox.setMessage("You're approaching a sightseeing item! Do you want more info?");
-
-                // add a neutral button to the alert box and assign a click listener
-                alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-
-                    // click listener on the alert box
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        // the button was clicked
-                    	AlertDialog.Builder Dialog = new AlertDialog.Builder(localcontext);
-                    	Dialog.setTitle("Nearby Site");
-                    	Dialog.setMessage(R.string.KazanKremlin_descr);
-                    	AlertDialog dial = Dialog.show();
-                    	TextView messageView = (TextView)dial.findViewById(android.R.id.message);
-                    	messageView.setGravity(Gravity.CENTER);
-                    }
-                });
-
-                // show it
-                alertbox.show();
-            }
-        
-        
-        if(dist3 < 10) {   
-            // prepare the alert box
-    	    final Context localcontext = this;
-            AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
-            
-            // set the message to display
-            alertbox.setMessage("You're approaching a sightseeing item! Do you want more info?");
-
-            // add a neutral button to the alert box and assign a click listener
-            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-
-                // click listener on the alert box
-                public void onClick(DialogInterface arg0, int arg1) {
-                    // the button was clicked
-                	AlertDialog.Builder Dialog = new AlertDialog.Builder(localcontext);
-                	Dialog.setTitle("Nearby Site");
-                	Dialog.setMessage(R.string.Biler_descr);
-                	AlertDialog dial = Dialog.show();
-                	TextView messageView = (TextView)dial.findViewById(android.R.id.message);
-                	messageView.setGravity(Gravity.CENTER);
-                }
-            });
-
-            // show it
-            alertbox.show();
-        }
-       */         
-        //         
-        
+        ttsstring = this.getString(R.string.Berkeley_descr);
+        AlertHandler.ShowAlert(this, dist, ttsstring, this); 
+      
+     // controls enabling + Overlay part   
         GeoPoint point = new GeoPoint((int)(latid*1e6),(int)(longid*1e6));
         String Popupstring = "Lat: "+Double.toString(latid)+" Long: " + Double.toString(longid)+ " w/ Acc: " + Double.toString(accuracyd) + " Provider: " + providershow + " " + Double.toString(dist);
         OverlayItem overlayitem = new OverlayItem(point, "Mobsy", "My Location is: \n" + Popupstring);
          
+        mapControl = mapView.getController();
+        mapControl.animateTo(point);
+        mapControl.setZoom(13);
+        
+        compass = new MyLocationOverlay(this, mapView);
+        
         mapOverlays = mapView.getOverlays();
         drawable = this.getResources().getDrawable(R.drawable.droid_overlay);
         pointsOverlay = new CostumMapOverlay(drawable,this);
        
         pointsOverlay.addOverlay(overlayitem);
         mapOverlays.add(pointsOverlay);
+        mapOverlays.add(compass);
 
          
     }
     
-    public void onInit(int i)
+    @Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		compass.disableCompass();
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		compass.enableCompass();
+	}
+
+	public void onInit(int i)
     {
-        mTts.speak(this.getString(R.string.KazanKremlin_descr),
+        /*mTts.speak(ttsstring,
                 TextToSpeech.QUEUE_FLUSH,  // Drop all pending entries in the playback queue.
                 null);
+        */        
     }
     
     public void onActivityResult(int requestCode, int resultCode, Intent data)

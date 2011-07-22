@@ -67,6 +67,7 @@ public final class R {
         public static final int intro=0x7f040002;
     }
     public static final class string {
+        public static final int Berkeley_descr=0x7f05000a;
         public static final int Biler_descr=0x7f050009;
         public static final int KazanKremlin_descr=0x7f050008;
         public static final int MapMode=0x7f050005;
